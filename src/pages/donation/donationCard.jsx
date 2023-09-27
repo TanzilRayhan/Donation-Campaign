@@ -1,34 +1,11 @@
-/* eslint-disable no-unused-vars */
-import swal from 'sweetalert';
+const donationCard = ({item}) => {
 
-/* eslint-disable react/prop-types */
-const Cards = ({ item }) => {
   const { cover, title, category, bg_color, text_color, category_color } =
     item || {};
-
-  const addDonations = () => {
-    const addedDonations = [];
-
-    const donationItems = JSON.parse(localStorage.getItem("donations"));
-
-    if (!donationItems) {
-      addedDonations.push(item);
-      localStorage.setItem("donations", JSON.stringify(addedDonations));
-      swal("Congratualtions!", "Donation Added!", "success");
-    } else {
-    
-      addedDonations.push(...donationItems, item);
-        localStorage.setItem("donations", JSON.stringify(addedDonations));
-        swal("Congratualtions!", "Donation Added!", "success");
-    }
-
-    //console.log(item);
-  };
 
   return (
     <div>
       <div
-        onClick={addDonations}
         className="relative mb-5 flex w-full flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
         style={{ backgroundColor: bg_color }}
       >
@@ -54,4 +31,4 @@ const Cards = ({ item }) => {
   );
 };
 
-export default Cards;
+export default donationCard;
